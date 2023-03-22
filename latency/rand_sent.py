@@ -24,8 +24,8 @@ while i < 50:
     content = MIMEMultipart()  #建立MIMEMultipart物件
     rand_num=str(random.randint(1,1000))
     content["subject"] = (rand_num)+ " " + (email_time) + " 測試信件"  #郵件標題
-    content["from"] = "bill@cloud-ace.com"  #寄件者
-    content["to"] = "test35_1@test35.humorousaaron.com,test35_2@test35.humorousaaron.com,test35_3@test35.humorousaaron.com" #收件者
+    content["from"] = "example@xxx.com"  #寄件者
+    content["to"] = "example@xxx.com,example@xxx.com" #收件者
     content.attach(MIMEText(message))  #郵件內容 
     print(i)
     i=i + 1
@@ -34,7 +34,7 @@ while i < 50:
         try:
             smtp.ehlo()  # 驗證SMTP伺服器
             smtp.starttls()  # 建立加密傳輸
-            smtp.login("sa@tw.cloud-ace.com", "happy_support_catw")  # 登入寄件者gmail
+            smtp.login("example@xxx.com", "example_password")  # 登入寄件者gmail
             smtp.send_message(content)  # 寄送郵件
             print("Complete!")
         except Exception as e:
